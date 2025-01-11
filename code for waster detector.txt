@@ -1,0 +1,71 @@
+#include <Servo.h>
+
+Servo servo1;
+const int trigPin = D6; // Adjust pin number for NodeMCU
+const int echoPin = D5; // Adjust pin number for NodeMCU
+long duration;
+int distance = 0;
+int potPin = A0; // NodeMCU has one analog pin (A0)
+int soil = 0;
+int fsoil;
+int maxDryValue = 1;      // Threshold for moisture
+int Ultra_Distance = 15;  // Distance in cm
+
+void setup() {
+  Serial.begin(115200); // NodeMCU typically uses 115200 baud rate
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  servo1.attach(D1); // Adjusted for NodeMCU, attach servo to GPIO5
+  Serial.println("Soil Sensor     Ultrasonic          Servo");
+}
+
+void loop() {
+  int soil = 0;
+  
+  for (int i = 0; i < 2; i++) {
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(7);
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+
+#include <Servo.h>
+
+Servo servo1;
+const int trigPin = D6; // Adjust pin number for NodeMCU
+const int echoPin = D5; // Adjust pin number for NodeMCU
+long duration;
+int distance = 0;
+int potPin = A0; // NodeMCU has one analog pin (A0)
+int soil = 0;
+int fsoil;
+int maxDryValue = 1;      // Threshold for moisture
+int Ultra_Distance = 15;  // Distance in cm
+
+void setup() {
+  Serial.begin(115200); // NodeMCU typically uses 115200 baud rate
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  servo1.attach(D1); // Adjusted for NodeMCU, attach servo to GPIO5
+  Serial.println("Soil Sensor     Ultrasonic          Servo");
+}
+
+void loop() {
+  int soil = 0;
+  
+  for (int i = 0; i < 2; i++) {
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(7);
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+ servo1.write(10);
+      delay(3000);
+    }
+
+    servo1.write(90);
+  }
+
+  distance = 0;
+  fsoil = 0;
+  delay(1000);
+}
+
